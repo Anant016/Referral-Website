@@ -1,0 +1,13 @@
+#Anant Rungta
+User-agent: Googlebot
+Disallow:
+
+#Rule2
+User-agent: Bingbot
+Disallow:
+
+#Rule3
+User-agent: *
+Disallow:
+
+Sitemap: https://grabcouponcode.tech/sitemap.xml
