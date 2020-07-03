@@ -7,7 +7,6 @@ import { Menu, Dropdown, Icon, Button } from "antd";
 import "antd/dist/antd.css";
 import { Helmet } from "react-helmet";
 import firebaseConfig from "../config";
-import fs from "fs";
 import axios from "axios";
 import { fixControlledValue } from "antd/lib/input/Input";
 // Initialize Firebase
