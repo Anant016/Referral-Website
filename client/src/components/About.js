@@ -34,7 +34,11 @@ export default class About extends Component {
               updated and up and running for everyone.
             </li>
           </ul>
-          <a href="https://www.buymeacoffee.com/anant016" target="_blank">
+          <a
+            href="https://www.buymeacoffee.com/anant016"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <img
               src="https://cdn.buymeacoffee.com/buttons/default-orange.png"
               alt="Buy Me A Coffee"

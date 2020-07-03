@@ -18,7 +18,6 @@ app.get("/all", (req, res) => {
   let Referrals = db.collection("referrals");
   Referrals.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
       daata.push(doc.data());
     });
     res.send(daata);

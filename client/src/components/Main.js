@@ -20,6 +20,7 @@ export default class Main extends Component {
     data: [],
     search: "",
     length: "",
+    categorySelected: "",
   };
 
   componentWillMount() {
@@ -36,13 +37,14 @@ export default class Main extends Component {
     //   });
     // });
     axios.get("/all").then((data) => {
-      console.log(data);
       this.setState({
         data: data.data,
         length: data.data.length,
       });
     });
   }
+
+  // next.js
 
   loadshop() {
     let daata = [];
@@ -54,6 +56,7 @@ export default class Main extends Component {
         }
       });
       this.setState({
+        categorySelected: "Shopping",
         data: daata,
         length: daata.length,
       });
@@ -70,6 +73,7 @@ export default class Main extends Component {
         }
       });
       this.setState({
+        categorySelected: "Productivity",
         data: daata,
         length: daata.length,
       });
@@ -86,6 +90,7 @@ export default class Main extends Component {
         }
       });
       this.setState({
+        categorySelected: "Miscallaneous",
         data: daata,
         length: daata.length,
       });
@@ -102,6 +107,7 @@ export default class Main extends Component {
         }
       });
       this.setState({
+        categorySelected: "Payment",
         data: daata,
         length: daata.length,
       });
@@ -117,6 +123,7 @@ export default class Main extends Component {
         }
       });
       this.setState({
+        categorySelected: "Travel",
         data: daata,
         length: daata.length,
       });
@@ -131,6 +138,7 @@ export default class Main extends Component {
         daata.push(doc.data());
       });
       this.setState({
+        categorySelected: "Categories",
         data: daata,
         length: daata.length,
       });
@@ -193,7 +201,6 @@ export default class Main extends Component {
         </Menu.Item>
       </Menu>
     );
-    console.log(this.state);
     let List = "";
     if (this.state.data == null) {
       List = "Loaing...";
@@ -235,7 +242,10 @@ export default class Main extends Component {
           <div className="col col-12 col-lg-3 col-sm-12 col-md-12 mt-2 mb-2 justify-content-center">
             <Dropdown overlay={menu}>
               <Button style={{ width: "100%", height: "2.7em" }}>
-                Categories <Icon type="down" />
+                {this.state.categorySelected != ""
+                  ? this.state.categorySelected
+                  : "Categories"}{" "}
+                <Icon type="down" />
               </Button>
             </Dropdown>
           </div>

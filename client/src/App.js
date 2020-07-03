@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/about" component={About} />
@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/policy" component={Policy} />
           </Switch>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </div>
     );
   }
