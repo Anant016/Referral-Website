@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import { Route, BrowserRouter, HashRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import About from "./components/About";
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/about" component={About} />
@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/policy" component={Policy} />
           </Switch>
           <Footer />
-        </HashRouter>
+        </BrowserRouter>
       </div>
     );
   }

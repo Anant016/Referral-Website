@@ -111,7 +111,7 @@ export default class Item extends Component {
           >
             Code:{" "}
             <Popover
-              content={<a onClick={this.hide}>Copied</a>}
+              content={<span onClick={this.hide}>Copied</span>}
               trigger="click"
               visible={this.state.visible}
               onVisibleChange={this.handleVisibleChange}

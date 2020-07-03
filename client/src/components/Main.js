@@ -8,6 +8,7 @@ import "antd/dist/antd.css";
 import { Helmet } from "react-helmet";
 import firebaseConfig from "../config";
 import axios from "axios";
+import "../favicon.ico";
 import { fixControlledValue } from "antd/lib/input/Input";
 // Initialize Firebase
 var config = firebaseConfig.firebaseConfig;
@@ -50,7 +51,7 @@ export default class Main extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        if (doc.data().category == "shopping") {
+        if (doc.data().category === "shopping") {
           daata.push(doc.data());
         }
       });
@@ -67,7 +68,7 @@ export default class Main extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        if (doc.data().category == "productive") {
+        if (doc.data().category === "productive") {
           daata.push(doc.data());
         }
       });
@@ -84,7 +85,7 @@ export default class Main extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        if (doc.data().category == "") {
+        if (doc.data().category === "") {
           daata.push(doc.data());
         }
       });
@@ -101,7 +102,7 @@ export default class Main extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        if (doc.data().category == "payment") {
+        if (doc.data().category === "payment") {
           daata.push(doc.data());
         }
       });
@@ -117,7 +118,7 @@ export default class Main extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        if (doc.data().category == "Travel") {
+        if (doc.data().category === "Travel") {
           daata.push(doc.data());
         }
       });
@@ -201,7 +202,7 @@ export default class Main extends Component {
       </Menu>
     );
     let List = "";
-    if (this.state.data == null) {
+    if (this.state.data === null) {
       List = "Loaing...";
     } else {
       if (this.state.data.length > 0) {
@@ -218,8 +219,8 @@ export default class Main extends Component {
     return (
       <div className="container mt-2 mb-5">
         <Helmet>
+          <link rel="shortcut icon" href="favicon.ico" />
           <meta charset="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
           <meta
@@ -241,7 +242,7 @@ export default class Main extends Component {
           <div className="col col-12 col-lg-3 col-sm-12 col-md-12 mt-2 mb-2 justify-content-center">
             <Dropdown overlay={menu}>
               <Button style={{ width: "100%", height: "2.7em" }}>
-                {this.state.categorySelected != ""
+                {this.state.categorySelected !== ""
                   ? this.state.categorySelected
                   : "Categories"}{" "}
                 <Icon type="down" />
