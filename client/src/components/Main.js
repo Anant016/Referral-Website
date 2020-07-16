@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import firebaseConfig from "../config";
 import axios from "axios";
 import "../favicon.ico";
+import "../hide.css";
 import { fixControlledValue } from "antd/lib/input/Input";
 // Initialize Firebase
 var config = firebaseConfig.firebaseConfig;
@@ -211,7 +212,11 @@ export default class Main extends Component {
         ));
       } else {
         {
-          List = <h4 className="mt-5">Loading...</h4>;
+          List = (
+            <center>
+              <h4 className="mt-5">Loading...</h4>
+            </center>
+          );
         }
       }
     }
@@ -296,7 +301,27 @@ export default class Main extends Component {
           </div>
         </div>
         <div className="mb-5" style={{ marginBottom: "500px" }}>
-          {" "}
+          <div
+            className="d-flex flex-row "
+            style={{ fontWeight: "bolder", fontSize: "1.22em" }}
+          >
+            <div className="flex-col flex-fill d-flex align-items-center justify-content-center">
+              <i>Company</i>
+            </div>
+            <div className="flex-col flex-fill d-flex align-items-center justify-content-left">
+              <i>Hover to Know more</i>
+            </div>
+            <div className="flex-col flex-fill d-flex align-items-center justify-content-center">
+              <i>Click to Copy Code</i>
+            </div>
+            <div className="flex-col flex-fill d-flex align-items-center justify-content-end">
+              <i>Offer Link</i>
+            </div>
+            <div className="flex-col flex-fill d-flex align-items-center justify-content-end ">
+              <i className="hide">Share</i>
+            </div>
+          </div>
+
           {List}
         </div>
         {/* <a href="https://github.com/Anant016">@anant016</a> */}.

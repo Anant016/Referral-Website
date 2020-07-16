@@ -8,12 +8,14 @@ export default class About extends Component {
         <Helmet>
           <title>About</title>
         </Helmet>
-        <Link
-          to="/"
-          style={{ color: "red", fontSize: "500%", fontFamily: "cursive" }}
-        >
-          Run-Coupon
-        </Link>
+        <center>
+          <Link
+            to="/"
+            style={{ color: "red", fontSize: "500%", fontFamily: "cursive" }}
+          >
+            Run-Coupon
+          </Link>
+        </center>
         <br />
         <div className="lead" style={{ fontSize: "160%" }}>
           <ul className="justify-content-start ml-5 col">
@@ -34,17 +36,19 @@ export default class About extends Component {
               updated and up and running for everyone.
             </li>
           </ul>
-          <a
-            href="https://www.buymeacoffee.com/anant016"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              src="https://cdn.buymeacoffee.com/buttons/default-orange.png"
-              alt="Buy Me A Coffee"
-              style={{ height: "51px", width: "217px" }}
-            />
-          </a>
+          <center>
+            <a
+              href="https://www.buymeacoffee.com/anant016"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/default-orange.png"
+                alt="Buy Me A Coffee"
+                style={{ height: "51px", width: "217px" }}
+              />
+            </a>
+          </center>
         </div>
       </div>
     );

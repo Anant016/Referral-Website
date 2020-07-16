@@ -8,12 +8,14 @@ export default class Policy extends Component {
         <Helmet>
           <title>Policy</title>
         </Helmet>
-        <Link
-          to="/"
-          style={{ color: "red", fontSize: "500%", fontFamily: "cursive" }}
-        >
-          Privacy - policy
-        </Link>
+        <center>
+          <Link
+            to="/"
+            style={{ color: "red", fontSize: "500%", fontFamily: "cursive" }}
+          >
+            Privacy - policy
+          </Link>
+        </center>
         <br />
         <div className="lead" style={{ fontSize: "160%" }}>
           <ul className="justify-content-start ml-5 col">

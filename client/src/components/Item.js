@@ -58,12 +58,15 @@ export default class Item extends Component {
           onChange={this.onChange.bind(this)}
           value={this.state.phone}
         />
-        <button
-          style={{ color: "white", backgroundColor: "#60BE92" }}
-          onClick={this.share.bind(this)}
-        >
-          Share
-        </button>
+        <center>
+          <button
+            className="mt-1"
+            style={{ color: "white", backgroundColor: "#60BE92" }}
+            onClick={this.share.bind(this)}
+          >
+            Share
+          </button>
+        </center>
       </div>
     );
     const item = this.props.item;
@@ -110,24 +113,50 @@ export default class Item extends Component {
             className="flex-col flex-fill d-flex align-items-center justify-content-center"
           >
             Code:{" "}
-            <Popover
-              content={<span onClick={this.hide}>Copied</span>}
-              trigger="click"
-              visible={this.state.visible}
-              onVisibleChange={this.handleVisibleChange}
-            >
-              <div style={{ cursor: "pointer" }} onClick={this.copy.bind(this)}>
-                <b className="mr-2" id="code">
-                  {" "}
-                  <strong>{item.refercode}</strong>
-                </b>{" "}
-                <img
-                  alt="copy"
-                  style={{ width: "12%" }}
-                  src="https://img.icons8.com/dusk/64/000000/copy.png"
-                ></img>
-              </div>
-            </Popover>
+            {item.refercode == "Go to Link" ? (
+              <Popover
+                content={<span onClick={this.hide}>Copied</span>}
+                trigger="click"
+                visible={this.state.visible}
+                onVisibleChange={this.handleVisibleChange}
+              >
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={this.copy.bind(this)}
+                >
+                  <b className="mr-2" id="code">
+                    <strong>{item.refercode}</strong>
+                  </b>{" "}
+                  <img
+                    alt="copy"
+                    style={{ width: "12%" }}
+                    src="https://img.icons8.com/dusk/64/000000/copy.png"
+                  ></img>
+                </div>
+              </Popover>
+            ) : (
+              // <Code  Only
+              <Popover
+                content={<span onClick={this.hide}>Copied</span>}
+                trigger="click"
+                visible={this.state.visible}
+                onVisibleChange={this.handleVisibleChange}
+              >
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={this.copy.bind(this)}
+                >
+                  <b className="mr-2" id="code">
+                    <strong>{item.refercode}</strong>
+                  </b>{" "}
+                  <img
+                    alt="copy"
+                    style={{ width: "12%" }}
+                    src="https://img.icons8.com/dusk/64/000000/copy.png"
+                  ></img>
+                </div>
+              </Popover>
+            )}
           </div>
           <div className="flex-col flex-fill d-flex align-items-center justify-content-center">
             <img
@@ -136,7 +165,7 @@ export default class Item extends Component {
               src="https://img.icons8.com/bubbles/50/000000/right.png"
             />
             <strong>
-              <a itemProp="url" href={item.downloadurl}>
+              <a itemProp="url" target="_blank" href={item.downloadurl}>
                 <div itemProp="disambiguatingDescription">{item.reward}</div>
               </a>
             </strong>
@@ -146,7 +175,6 @@ export default class Item extends Component {
             content={contentphone}
             placement="left"
             trigger="click"
-            title="Title"
           >
             <img
               alt="whatsapp_logo"

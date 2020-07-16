@@ -12,17 +12,23 @@ export default class Footer extends Component {
         // style={{ fontWeight: "bold", fontFamily: "Roboto, sans-serif" }}
         >
           <div className="mt-2">
-            <div className="row">
-              <div className="col">
+            <div className="row" style={{ fontWeight: "bold" }}>
+              <div className="col ml-5">
                 <Link to="/about" style={{ color: "black" }}>
                   About
                 </Link>
+                <br />
+                <Link to="/" style={{ color: "black" }}>
+                  Home
+                </Link>
+              </div>
+              <div className="col">
+                ©{date.getFullYear()}
                 <br />
                 <Link to="/policy" style={{ color: "black" }}>
                   Privacy Policy
                 </Link>
               </div>
-              <div className="col">©{date.getFullYear()}</div>
             </div>
           </div>
         </div>
