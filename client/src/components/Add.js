@@ -65,6 +65,7 @@ export default class Add extends Component {
           <option value="Travel">Travel</option>
           <option value="productive">Productive</option>
           <option value="shopping">Shopping</option>
+          <option value="crypto">Cryptocurrency</option>
           <option value="">Miscallaneous</option>
         </select>
         <input

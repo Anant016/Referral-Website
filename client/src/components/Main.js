@@ -37,16 +37,49 @@ export default class Main extends Component {
     //     length: daata.length,
     //   });
     // });
-    axios.get("/all").then((data) => {
+
+    // axios.get("/all").then((data) => {
+    //   this.setState({
+    //     data: data.data,
+    //     length: data.data.length,
+    //   });
+    // });
+
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "productive") {
+          daata.push(doc.data());
+        }
+      });
       this.setState({
-        data: data.data,
-        length: data.data.length,
+        categorySelected: "Productivity",
+        data: daata,
+        length: daata.length,
       });
     });
   }
 
-  // next.js
-
+  // CRYPTO
+  loadcrypto() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "crypto") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Cryptocurrency",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+  
+  // SHOPPING
   loadshop() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -64,6 +97,7 @@ export default class Main extends Component {
     });
   }
 
+  // PRODUCTIVITY
   loadprod() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -81,6 +115,7 @@ export default class Main extends Component {
     });
   }
 
+  // OTHER
   loadother() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -98,6 +133,7 @@ export default class Main extends Component {
     });
   }
 
+  // PAYMENT
   loadpayment() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -114,6 +150,8 @@ export default class Main extends Component {
       });
     });
   }
+
+  // TRAVEL
   loadtravel() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -131,6 +169,7 @@ export default class Main extends Component {
     });
   }
 
+  // ALL
   loadall() {
     let daata = [];
     let Referrals = db.collection("referrals");
@@ -170,31 +209,43 @@ export default class Main extends Component {
   render() {
     const menu = (
       <Menu>
+        {/* ALL */}
         <Menu.Item>
           <a onClick={this.loadall.bind(this)} rel="noopener noreferrer">
-            No Filter
+            Show All
           </a>
         </Menu.Item>
+        {/* Shopping */}
         <Menu.Item>
           <a onClick={this.loadshop.bind(this)} rel="noopener noreferrer">
             Shopping
           </a>
         </Menu.Item>
+        {/* Productivity */}
         <Menu.Item>
           <a onClick={this.loadprod.bind(this)} rel="noopener noreferrer">
             Productivity
           </a>
         </Menu.Item>
+        {/* TRAVEL */}
         <Menu.Item>
           <a onClick={this.loadtravel.bind(this)} rel="noopener noreferrer">
             Travel
           </a>
         </Menu.Item>
+        {/* PAYMENT */}
         <Menu.Item>
           <a onClick={this.loadpayment.bind(this)} rel="noopener noreferrer">
             Payment
           </a>
         </Menu.Item>
+        {/* CRYPTO */}
+        <Menu.Item>
+          <a onClick={this.loadcrypto.bind(this)} rel="noopener noreferrer">
+            Cryptocurrency
+          </a>
+        </Menu.Item>
+        {/* OTHER */}
         <Menu.Item>
           <a onClick={this.loadother.bind(this)} rel="noopener noreferrer">
             Miscallaneous
@@ -299,7 +350,12 @@ export default class Main extends Component {
               value={this.state.search}
             />
           </div>
+
         </div>
+    
+        <center className="blink_me" style={{color:"purple",fontSize:"2em",fontFamily: "Sriracha, cursive" }}> Category: {this.state.categorySelected} </center>
+<br/>
+
         <div className="mb-5" style={{ marginBottom: "500px" }}>
           <div
             className="d-flex flex-row "
