@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: run-coupon.herokuapp.com
+Token: 854e0d40b504addcc6469ea2e9ae5c4d89653e255e58f5f6603482bd19b9e1e6
