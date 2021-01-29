@@ -22,7 +22,7 @@ if (!firebase.apps.length) {
 
 const db = firebase.firestore();
 
-export default class Crypto extends Component {
+export default class Payment extends Component {
   state = {
     data: [],
     search: "",
@@ -55,12 +55,136 @@ export default class Crypto extends Component {
     let Referrals = db.collection("referrals");
     Referrals.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
+        if (doc.data().category === "payment") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Payment",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // CRYPTO
+  loadcrypto() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
         if (doc.data().category === "crypto") {
           daata.push(doc.data());
         }
       });
       this.setState({
         categorySelected: "Cryptocurrency",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+  
+  // SHOPPING
+  loadshop() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "shopping") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Shopping",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // PRODUCTIVITY
+  loadprod() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "productive") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Productivity",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // OTHER
+  loadother() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Miscallaneous",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // PAYMENT
+  loadpayment() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "payment") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Payment",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // TRAVEL
+  loadtravel() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.data().category === "Travel") {
+          daata.push(doc.data());
+        }
+      });
+      this.setState({
+        categorySelected: "Travel",
+        data: daata,
+        length: daata.length,
+      });
+    });
+  }
+
+  // ALL
+  loadall() {
+    let daata = [];
+    let Referrals = db.collection("referrals");
+    Referrals.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        daata.push(doc.data());
+      });
+      this.setState({
+        categorySelected: "Categories",
         data: daata,
         length: daata.length,
       });
@@ -90,7 +214,7 @@ export default class Crypto extends Component {
 
   render() {
     const menu = (
-        <Menu>
+      <Menu>
         {/* ALL */}
         <Menu.Item>
             <Link to="/all">Show All</Link>

@@ -13,7 +13,11 @@ import "../hide.css";
 import { fixControlledValue } from "antd/lib/input/Input";
 // Initialize Firebase
 var config = firebaseConfig.firebaseConfig;
-firebase.initializeApp(config);
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}else {
+  firebase.app(); // if already initialized, use that one
+}
 const db = firebase.firestore();
 
 export default class Main extends Component {
@@ -209,49 +213,35 @@ export default class Main extends Component {
   render() {
     const menu = (
       <Menu>
-        {/* ALL */}
-        <Menu.Item>
-          <a onClick={this.loadall.bind(this)} rel="noopener noreferrer">
-            Show All
-          </a>
-        </Menu.Item>
-        {/* Shopping */}
-        <Menu.Item>
-          <a onClick={this.loadshop.bind(this)} rel="noopener noreferrer">
-            Shopping
-          </a>
-        </Menu.Item>
-        {/* Productivity */}
-        <Menu.Item>
-          <a onClick={this.loadprod.bind(this)} rel="noopener noreferrer">
-            Productivity
-          </a>
-        </Menu.Item>
-        {/* TRAVEL */}
-        <Menu.Item>
-          <a onClick={this.loadtravel.bind(this)} rel="noopener noreferrer">
-            Travel
-          </a>
-        </Menu.Item>
-        {/* PAYMENT */}
-        <Menu.Item>
-          <a onClick={this.loadpayment.bind(this)} rel="noopener noreferrer">
-            Payment
-          </a>
-        </Menu.Item>
-        {/* CRYPTO */}
-        <Menu.Item>
-          <a onClick={this.loadcrypto.bind(this)} rel="noopener noreferrer">
-            Cryptocurrency
-          </a>
-        </Menu.Item>
-        {/* OTHER */}
-        <Menu.Item>
-          <a onClick={this.loadother.bind(this)} rel="noopener noreferrer">
-            Miscallaneous
-          </a>
-        </Menu.Item>
-      </Menu>
+      {/* ALL */}
+      <Menu.Item>
+            <Link to="/all">Show All</Link>
+      </Menu.Item>
+      {/* Shopping */}
+      <Menu.Item>
+        <Link to="/shopping">Shopping</Link>
+      </Menu.Item>
+      {/* Productivity */}
+      <Menu.Item>
+        <Link to="/productivity">Productivity</Link>
+      </Menu.Item>
+      {/* TRAVEL */}
+      <Menu.Item>
+        <Link to="/travel">Travel</Link>
+      </Menu.Item>
+      {/* PAYMENT */}
+      <Menu.Item>
+        <Link to="/payment">Payment</Link>
+      </Menu.Item>
+      {/* CRYPTO */}
+      <Menu.Item>
+        <Link to ="/crypto">Cryptocurrency</Link>
+      </Menu.Item>
+      {/* OTHER */}
+      <Menu.Item>
+        <Link to="/Miscallaneous">Miscallaneous</Link>
+      </Menu.Item>
+    </Menu>
     );
     let List = "";
     if (this.state.data === null) {

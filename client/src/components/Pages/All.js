@@ -22,7 +22,7 @@ if (!firebase.apps.length) {
 
 const db = firebase.firestore();
 
-export default class Crypto extends Component {
+export default class All extends Component {
   state = {
     data: [],
     search: "",
@@ -31,41 +31,15 @@ export default class Crypto extends Component {
   };
 
   componentWillMount() {
-    // let daata = [];
-    // let Referrals = db.collection("referrals");
-    // Referrals.get().then((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     console.log(doc.data());
-    //     daata.push(doc.data());
-    //   });
-    //   this.setState({
-    //     data: daata,
-    //     length: daata.length,
-    //   });
-    // });
-
-    // axios.get("/all").then((data) => {
-    //   this.setState({
-    //     data: data.data,
-    //     length: data.data.length,
-    //   });
-    // });
-
-    let daata = [];
-    let Referrals = db.collection("referrals");
-    Referrals.get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.data().category === "crypto") {
-          daata.push(doc.data());
-        }
-      });
+    axios.get("/all").then((data) => {
       this.setState({
-        categorySelected: "Cryptocurrency",
-        data: daata,
-        length: daata.length,
+        data: data.data,
+        length: data.data.length,
       });
     });
+
   }
+
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -93,7 +67,7 @@ export default class Crypto extends Component {
         <Menu>
         {/* ALL */}
         <Menu.Item>
-            <Link to="/all">Show All</Link>
+          <Link to="/all">Show All</Link>
         </Menu.Item>
         {/* Shopping */}
         <Menu.Item>

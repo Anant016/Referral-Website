@@ -9,6 +9,12 @@ import Add from "./components/Add";
 
 // PAGES
 import Crypto from "./components/Pages/Crypto";
+import Payment from "./components/Pages/Payment";
+import Productivity from "./components/Pages/Productivity";
+import Travel from "./components/Pages/Travel";
+import Shopping from "./components/Pages/Shopping";
+import Miscallaneous from "./components/Pages/Miscallaneous";
+import All from "./components/Pages/All";
 
 class App extends Component {
   render() {
@@ -26,8 +32,33 @@ class App extends Component {
         </Switch>
 
         {/* PAGES */}
+        {/* 0. All */}
+        <Switch>
+          <Route exact path="/all" component={All} />
+        </Switch>
+        {/* 1. CRYPTO */}
         <Switch>
           <Route exact path="/crypto" component={Crypto} />
+        </Switch>
+        {/* 2. PAYMENT */}
+        <Switch>
+          <Route exact path="/payment" component={Payment} />
+        </Switch>
+        {/* 3. Productivity */}
+        <Switch>
+          <Route exact path="/productivity" component={Productivity} />
+        </Switch>
+        {/* 4. Travel */}
+        <Switch>
+          <Route exact path="/travel" component={Travel} />
+        </Switch>
+        {/* 5. Shopping */}
+        <Switch>
+          <Route exact path="/shopping" component={Shopping} />
+        </Switch>
+        {/* 6. Other */}
+        <Switch>
+          <Route exact path="/miscallaneous" component={Miscallaneous} />
         </Switch>
         <Footer />
       </BrowserRouter>
