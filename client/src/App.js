@@ -7,6 +7,9 @@ import About from "./components/About";
 import Policy from "./components/Policy";
 import Add from "./components/Add";
 
+import Add from "./components/Add";
+import Crypto from "./components/Pages/Crypto";
+
 class App extends Component {
   render() {
     return (
@@ -20,6 +23,11 @@ class App extends Component {
         </Switch>
         <Switch>
           <Route exact path="/policy" component={Policy} />
+        </Switch>
+
+        {/* PAGES */}
+        <Switch>
+          <Route exact path="/crypto" component={Crypto} />
         </Switch>
         <Footer />
       </BrowserRouter>
