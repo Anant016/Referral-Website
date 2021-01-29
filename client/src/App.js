@@ -7,7 +7,7 @@ import About from "./components/About";
 import Policy from "./components/Policy";
 import Add from "./components/Add";
 
-import Add from "./components/Add";
+// PAGES
 import Crypto from "./components/Pages/Crypto";
 
 class App extends Component {
