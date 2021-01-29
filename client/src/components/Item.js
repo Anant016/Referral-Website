@@ -102,7 +102,7 @@ export default class Item extends Component {
               style={{ width: "20px" }}
             >
               {" "}
-              <b>{item.name}</b>{" "} {item.star?<span> 🆕 🌟</span>:<span></span>}
+              <b>{item.name}</b>{" "} {item.star?<span>  🌟🌟</span>:<span></span>}
               <div className="text-muted" style={{ fontSize: "70%" }}>
                 category: {item.category}
               </div>
