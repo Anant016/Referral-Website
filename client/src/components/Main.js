@@ -215,31 +215,31 @@ export default class Main extends Component {
       <Menu>
       {/* ALL */}
       <Menu.Item>
-            <Link to="/all">Show All</Link>
+            <Link to="/all">Show All 😎</Link>
       </Menu.Item>
       {/* Shopping */}
       <Menu.Item>
-        <Link to="/shopping">Shopping</Link>
+        <Link to="/shopping">Shopping 🛍️</Link>
       </Menu.Item>
       {/* Productivity */}
       <Menu.Item>
-        <Link to="/productivity">Productivity</Link>
+        <Link to="/productivity">Productivity 🤙</Link>
       </Menu.Item>
       {/* TRAVEL */}
       <Menu.Item>
-        <Link to="/travel">Travel</Link>
+        <Link to="/travel">Travel ✈️</Link>
       </Menu.Item>
       {/* PAYMENT */}
       <Menu.Item>
-        <Link to="/payment">Payment</Link>
+        <Link to="/payment">Payment 💰</Link>
       </Menu.Item>
       {/* CRYPTO */}
       <Menu.Item>
-        <Link to ="/crypto">Cryptocurrency</Link>
+        <Link to ="/crypto">Cryptocurrency ₿</Link>
       </Menu.Item>
       {/* OTHER */}
       <Menu.Item>
-        <Link to="/Miscallaneous">Miscallaneous</Link>
+        <Link to="/Miscallaneous">Miscallaneous 🤘</Link>
       </Menu.Item>
     </Menu>
     );
